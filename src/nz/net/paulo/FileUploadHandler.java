@@ -142,7 +142,7 @@ public class FileUploadHandler extends RequestHandler {
                 part.write(filePath);
                 if (isFilePart()) {
                     File tempFile = new File(filePath);
-                    File partFile = new File(ResponseInterface.TEMP_DIR, fileName + getPartExtension());
+                    File partFile = rp.getPart(fileName);
                     if (partFile.exists()) {
                         if (partFile.lastModified() != lastModifiedDate.getTime()) {
                             partFile.delete();
@@ -156,11 +156,11 @@ public class FileUploadHandler extends RequestHandler {
                     }
                     partFile.setLastModified(lastModifiedDate.getTime());
                     if (partFile.length() == getFileSize(rp.getContentRange())) {
-                        File finalFile = new File(RequestHandler.UPLOAD_DIR, fileName);
+                        File finalFile =  rp.getFileInUploadDir(fileName);
                         partFile.renameTo(finalFile);
                     }
                 }
-                File mainFile = new File(RequestHandler.UPLOAD_DIR, fileName);
+                File mainFile = rp.getFileInUploadDir(fileName);
                 if (mainFile.exists()) {
                     jsonArray.put(getFileJson(mainFile.getName(), mainFile.length()));
                 }
@@ -177,9 +177,9 @@ public class FileUploadHandler extends RequestHandler {
 
     private String getFullFilePath(String fileName) {
         if (isFilePart()) {
-            return ResponseInterface.TEMP_DIR + File.separator + fileName + getTempFilePartExtension();
+            return rp.getFilePathInTempDir(fileName, getTempFilePartExtension());
         }
-        return RequestHandler.UPLOAD_DIR + File.separator + fileName + getTempFilePartExtension();
+        return rp.getFilePathInUploadDir(fileName, getTempFilePartExtension()); 
     }
 
 }

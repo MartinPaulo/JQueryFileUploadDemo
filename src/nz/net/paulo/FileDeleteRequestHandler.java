@@ -26,7 +26,7 @@ public class FileDeleteRequestHandler extends RequestHandler {
         String message = "File " + filename + " not found on server."; // the most likely cause of error
         try (PrintWriter writer = response.getWriter()) {
             try {
-                File file = new File(UPLOAD_DIR, filename);
+                File file = rp.getFileInUploadDir(filename);
                 if (file.exists()) {
                     error = !file.delete();
                 }
@@ -41,4 +41,5 @@ public class FileDeleteRequestHandler extends RequestHandler {
             }
         }
     }
+
 }

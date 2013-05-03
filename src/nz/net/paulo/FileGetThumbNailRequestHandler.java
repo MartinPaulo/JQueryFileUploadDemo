@@ -28,7 +28,7 @@ public class FileGetThumbNailRequestHandler extends RequestHandler {
 
     @Override
     public void write(HttpServletResponse response) throws IOException {
-        File file = new File(UPLOAD_DIR, rp.getParameter(REQUEST));
+        File file = rp.getFile(REQUEST);
         if (file.exists()) {
             BufferedImage im = null;
             String mimetype = getMimeType(file);

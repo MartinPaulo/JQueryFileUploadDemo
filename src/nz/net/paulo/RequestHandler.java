@@ -23,10 +23,6 @@ public abstract class RequestHandler implements ResponseInterface {
     public RequestHandler(RequestParser requestParser) {
         this.rp = requestParser;
     }
-    
-    public static void createUploadDirectories() {
-        UPLOAD_DIR.mkdirs();
-    }
 
     @Override
     public abstract void write(HttpServletResponse response) throws IOException;

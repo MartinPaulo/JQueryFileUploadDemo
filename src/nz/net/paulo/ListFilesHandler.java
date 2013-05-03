@@ -23,7 +23,7 @@ public class ListFilesHandler extends RequestHandler {
         JSONArray jsonArray = new JSONArray();
         try (PrintWriter writer = response.getWriter()) {
             response.setContentType("application/json");
-            File[] files = UPLOAD_DIR.listFiles();
+            File[] files = rp.getUploadDir().listFiles();
             for (File file : files) {
                 jsonArray.put(getFileJson(file.getName(), file.length()));
             }

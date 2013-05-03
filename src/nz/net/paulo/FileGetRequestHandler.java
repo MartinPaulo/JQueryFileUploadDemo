@@ -22,7 +22,7 @@ public class FileGetRequestHandler extends RequestHandler {
 
     @Override
     public void write(HttpServletResponse response) throws IOException {
-        File file = new File(UPLOAD_DIR, rp.getParameter(REQUEST));
+        File file = rp.getFile(REQUEST);
         if (file.exists()) {
             int bytes = 0;
             try (ServletOutputStream op = response.getOutputStream()) {
