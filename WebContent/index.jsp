@@ -102,7 +102,6 @@
 				<li>Built with Twitter's <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> toolkit and Icons from <a
 					href="http://glyphicons.com/">Glyphicons</a>.
 				</li>
-				<li>V 0.2</li>
 			</ul>
 		</div>
 	</div>
