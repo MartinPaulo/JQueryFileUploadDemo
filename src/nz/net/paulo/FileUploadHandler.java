@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,18 +36,19 @@ public class FileUploadHandler extends RequestHandler {
 
     /**
      * Extracts file name from the content-disposition string
+     * @throws UnsupportedEncodingException 
      */
-    private static String extractFileName(String contentDisp) {
+    private static String extractFileName(String contentDisp) throws UnsupportedEncodingException {
         return getValueFrom(contentDisp, FILENAME_KEY);
     }
 
-    private static String getValueFrom(String contentDisp, final String key) {
+    private static String getValueFrom(String contentDisp, final String key) throws UnsupportedEncodingException {
         if (contentDisp != null) {
             String[] items = contentDisp.split(";");
             for (String s : items) {
                 if (s.trim().startsWith(key)) {
                     // content disposition's value can be encoded if it has different values...
-                    return s.substring(s.indexOf("=") + 2, s.length() - 1);// URLDecoder.decode(, "UTF-8");
+                    return  URLDecoder.decode(s.substring(s.indexOf("=") + 2, s.length() - 1), "UTF-8");
                 }
             }
         }
@@ -57,10 +59,11 @@ public class FileUploadHandler extends RequestHandler {
         Date result = new Date();
         // Format is "Mon, 05 Dec 2011 02:28:34 GMT"
         SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.ENGLISH);
-        String date = getValueFrom(contentDisp, LAST_MODIFIED_DATE_KEY);
         try {
+            String date = getValueFrom(contentDisp, LAST_MODIFIED_DATE_KEY);
             result = sdf.parse(date);
-        } catch (ParseException ex) {
+        } catch (ParseException | UnsupportedEncodingException ex) {
+            System.out.println("CD: " + contentDisp);
             // TODO Auto-generated catch block
             ex.printStackTrace();
         }
