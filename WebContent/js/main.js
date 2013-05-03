@@ -20,7 +20,7 @@ $(function() {
 		// Uncomment the following to send cross-domain cookies:
 		// xhrFields: {withCredentials: true},
 		url : '/JQueryFileUploadDemo/UploadServlet',
-		maxChunkSize : 10000000, // 10 MB
+		maxChunkSize : 5000000, // 5 MB
 		add : function(e, data) {
 			var that = this;
 			$.getJSON('/JQueryFileUploadDemo/UploadServlet', {
