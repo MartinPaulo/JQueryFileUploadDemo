@@ -25,7 +25,7 @@ public class FileDetailsRequestHandler extends RequestHandler {
         response.setContentType("application/json");
         JSONObject filejson = new JSONObject();
         try (PrintWriter writer = response.getWriter()) {
-            File file = new File(UPLOAD_DIR, rp.getParameter(REQUEST) + getPartExtension());
+            File file = new File(TEMP_DIR, rp.getParameter(REQUEST) + getPartExtension());
             if (file.exists()) {
                 filejson.put("file", getFileJson(file));
             }

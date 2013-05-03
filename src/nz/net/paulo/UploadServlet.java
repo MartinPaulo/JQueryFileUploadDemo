@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>Licence: <a href="http://opensource.org/licenses/MIT">MIT</a>
- * @author Martin Paulo
+ * @author Martin Paulo 👴
  */
 @MultipartConfig
 public class UploadServlet extends HttpServlet {

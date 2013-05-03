@@ -362,7 +362,7 @@
             }
             if (!multipart) {
                 options.headers['Content-Disposition'] = 'attachment; filename="' +
-                    encodeURI(file.name) + '"';
+                    encodeURI(file.name) + '"; lastModifiedDate="' + file.lastModifiedDate.toUTCString() + '"'; 
                 options.contentType = file.type;
                 options.data = options.blob || file;
             } else if ($.support.xhrFormDataFileUpload) {
@@ -396,7 +396,7 @@
                     }
                     if (options.blob) {
                         options.headers['Content-Disposition'] = 'attachment; filename="' +
-                            encodeURI(file.name) + '"';
+                            encodeURI(file.name) + '"; lastModifiedDate="' + file.lastModifiedDate.toUTCString() + '"'; 
                         formData.append(paramName, options.blob, file.name);
                     } else {
                         $.each(options.files, function (index, file) {

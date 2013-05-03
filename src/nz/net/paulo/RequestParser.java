@@ -19,7 +19,6 @@ import org.apache.commons.lang3.StringUtils;
 public class RequestParser {
 
     private HttpServletRequest request;
-
     public RequestParser(HttpServletRequest request) {
         this.request = request;
     }

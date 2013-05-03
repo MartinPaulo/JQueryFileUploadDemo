@@ -32,6 +32,10 @@ $(function() {
 			});
 		},
 	});
+	
+//	$('fileupload').bind('fileuploadfail', function (e, data) {
+//		alert("There was an error");
+//	});
 
 	
 	// Enable iframe cross-domain access via redirect option:
