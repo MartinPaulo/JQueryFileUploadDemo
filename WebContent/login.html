@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Login</title>
 </head>
 <body>
-	<h2>FAIMS test of large file upload</h2>
+	<h2>Test of large file upload</h2>
 	<p>V2.0</p>
 	<form method=post action="j_security_check">
 		<p>
-			<span>Username:</span> <br /> <input type="text" name="j_username"> father | mother
+			<span>Username:</span> <br /> <label>
+			<input type="text" name="j_username">
+		</label> father | mother
 		</p>
 		<p>
-			<span>Password:</span> <br /> <input type="password" name="j_password"> bob | mary
+			<span>Password:</span> <br /> <label>
+			<input type="password" name="j_password">
+		</label> bob | mary
 		</p>
 		<p>
 			<input type="submit" value="Login">

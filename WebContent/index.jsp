@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
+<%@ page contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 <!DOCTYPE HTML>
 <!--
 /*
@@ -17,7 +17,7 @@
 <!-- Force latest IE rendering engine or ChromeFrame if installed -->
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
 <meta charset="utf-8">
-<title>The FAIMS jQuery File Upload Test</title>
+<title>A jQuery File Upload Test</title>
 <meta name="description"
 	content="File Upload widget with multiple file selection, drag&amp;drop support, progress bar and preview images for jQuery. Supports cross-domain, chunked and resumable file uploads. Works with any server-side platform (Google App Engine, PHP, Python, Ruby on Rails, Java, etc.) that supports standard HTML form file uploads.">
 <meta name="viewport" content="width=device-width">
@@ -27,29 +27,25 @@
 <link rel="stylesheet" href="css/style.css">
 <!-- Bootstrap styles for responsive website layout, supporting different screen sizes -->
 <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-<!-- Bootstrap CSS fixes for IE6 -->
-<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
 <!-- Bootstrap Image Gallery styles -->
 <link rel="stylesheet" href="blueimp/bootstrap-image-gallery.css">
 <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
 <!-- CSS adjustments for browsers with JavaScript disabled -->
 
-<!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
-<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
 	<div class="container">
 		<div class="page-header">
-			<h1>The FAIMS jQuery File Upload Test</h1>
+			<h1>A jQuery File Upload Test</h1>
 		</div>
 		<blockquote>
-			<p>A test bed for the jQuery file upload widget that is in use by the FAIMS project.</p>
+			<p>A test bed for a jQuery file upload widget.</p>
 		</blockquote>
 		<br>
 		<p>Welcome, <%=request.getRemoteUser()%>. <a href="logout.jsp">Click here to log out...</a></p>
 		<!-- The file upload form used as target for the file upload widget -->
-		<form id="fileupload" action="/JQueryFileUploadDemo/UploadServlet" method="POST" enctype="multipart/form-data">
+		<form id="fileupload" action="${pageContext.request.contextPath}/JQueryFileUploadDemo/UploadServlet" method="POST" enctype="multipart/form-data">
 			<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
 			<div class="row fileupload-buttonbar">
 				<div class="span7">
@@ -66,14 +62,16 @@
 					<button type="button" class="btn btn-danger delete">
 						<i class="icon-trash icon-white"></i> <span>Delete</span>
 					</button>
-					<input type="checkbox" class="toggle">
+					<label>
+						<input type="checkbox" class="toggle">
+					</label>
 				</div>
 				<!-- The global progress information -->
 				<div class="span5 fileupload-progress fade">
 					<!-- The global progress bar -->
 					<div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0"
 						aria-valuemax="100">
-						<div class="bar" style="width: 0%;"></div>
+						<div class="bar" style="width: 0;"></div>
 					</div>
 					<!-- The extended global progress information -->
 					<div class="progress-extended">&nbsp;</div>
@@ -184,7 +182,7 @@
 {% } %}
 </script>
 	<!-- script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script-->
-	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-3.5.0.js"></script>
 	<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 	<script src="js/vendor/jquery.ui.widget.js"></script>
 	<!-- The Templates plugin is included to render the upload/download listings -->

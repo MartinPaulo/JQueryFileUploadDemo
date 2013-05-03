@@ -23,21 +23,21 @@ public class FileDetailsRequestHandler extends RequestHandler {
     @Override
     public void write(HttpServletResponse response) throws IOException {
         response.setContentType("application/json");
-        JSONObject filejson = new JSONObject();
+        JSONObject files = new JSONObject();
         try (PrintWriter writer = response.getWriter()) {
             File file = rp.getPartUploadedSoFar(REQUEST);
             if (file.exists()) {
-                filejson.put("file", getFileJson(file));
+                files.put("file", getFileJson(file));
             }
-            writer.write(filejson.toString());
+            writer.write(files.toString());
         }
     }
 
     private static JSONObject getFileJson(File file) {
-        JSONObject filedata = new JSONObject();
-        filedata.put("name", file.getName());
-        filedata.put("size", file.length());
-        return filedata;
+        JSONObject fileData = new JSONObject();
+        fileData.put("name", file.getName());
+        fileData.put("size", file.length());
+        return fileData;
     }
 
 }
