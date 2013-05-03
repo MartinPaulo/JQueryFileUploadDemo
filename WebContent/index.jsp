@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 <!DOCTYPE HTML>
 <!--
 /*
@@ -43,11 +44,10 @@
 			<h1>The FAIMS jQuery File Upload Test</h1>
 		</div>
 		<blockquote>
-			<p>
-				A test bed for the jQuery file upload widget that is in use by the FAIMS project.
-			</p>
+			<p>A test bed for the jQuery file upload widget that is in use by the FAIMS project.</p>
 		</blockquote>
 		<br>
+		<p>Welcome, <%=request.getRemoteUser()%>. <a href="logout.jsp">Click here to log out...</a></p>
 		<!-- The file upload form used as target for the file upload widget -->
 		<form id="fileupload" action="/JQueryFileUploadDemo/UploadServlet" method="POST" enctype="multipart/form-data">
 			<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -93,8 +93,7 @@
 			<ul>
 				<li>The maximum file size for uploads is <strong>unlimited</strong>.
 				</li>
-				<li>There is no file type restriction.
-				</li>
+				<li>There is no file type restriction.</li>
 				<li>You can <strong>drag &amp; drop</strong> files from your desktop on this webpage with Google Chrome,
 					Mozilla Firefox and Apple Safari.
 				</li>
@@ -103,8 +102,7 @@
 				<li>Built with Twitter's <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> toolkit and Icons from <a
 					href="http://glyphicons.com/">Glyphicons</a>.
 				</li>
-				<li>V 0.1
-				</li>
+				<li>V 0.2</li>
 			</ul>
 		</div>
 	</div>
